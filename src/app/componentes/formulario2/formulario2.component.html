@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <form  autocomplete="off" class="form-control">     
+                
+                <h1 class="text text-danger">Datos</h1><!--titulo del formulario-->
+                 
+                <label  class="form-label text-danger"><b>Nombres y Apellidos</b> </label>
+                <input  [(ngModel)]="user_info.nombre" [ngModelOptions]="{standalone:true}" type="text" class="form-control" required='ngModel' placeholder="Digite su nombre completo...">
+                <br>
+                <label  class="form-label text-danger"><b>Telefono</b></label>
+                <input [(ngModel)]="user_info.telefono" [ngModelOptions]="{standalone:true}" type="number" class="form-control" required  placeholder="Digite su telefono sin espacios...">
+                <br>
+                <label for="email" class="form-label text-danger"><b>Correo electronico</b></label>
+                <input [(ngModel)]="user_info.email" [ngModelOptions]="{standalone:true}" type="email" class="form-control" required placeholder="Digite su correo electronico...">
+                <br>
+                <label for="mensaje" class="form-label text-danger"><b>Dirrecion</b></label>
+                <input [(ngModel)]="user_info.dirrecion" [ngModelOptions]="{standalone:true}" type="text" class="form-control"  required  placeholder="Digite su comentario..">     
+                <br> 
+                <button (click)="addTask()" type="button" class="btn btn-primary btn-block"><b>Enviar</b></button>&nbsp;
+                <button (click)="editar()" type="button" class="btn btn-warning btn-block"><b>Editar</b></button>
+            
+          
+          </form> 
+
+        </div>
+        
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <table class="table table-basic table-basic" >
+            <thead>
+              <tr>
+              <th>ID</th> 
+              <th>Nombre</th>   
+              <th>Telefono</th>  
+              <th>Correo</th>  
+              <th>Dirrecion</th>
+              <th>Opcion</th>
+              </tr>
+            </thead> 
+            
+            <tbody>
+              <tr *ngFor="let item of lstuser; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.nombre}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.dirrecion}}</td>
+                <td><button (click)="doDelete(i)" class="btn btn-danger btr-sm"><b>Eliminar</b></button>&nbsp;
+                <td><button (click)="edit(item)" class="btn btn-warning btr-sm"><b>Editar</b></button> 
+                
+              </tr>
+            </tbody>
+        
+          
+        
+            </table>
+          </div>
+    </div>
+</div>
+
